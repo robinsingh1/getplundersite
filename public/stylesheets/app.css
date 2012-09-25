@@ -31,7 +31,8 @@ body {
 #background{
     background-image:url('../images/gilt_russia.jpg');
     background-repeat:no-repeat;
-    background-size:100%;
+    background-size:1326px 745.875px;
+    background-position: center;
     background-color:#000;
     position:absolute;
     top:0px;

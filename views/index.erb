@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+    <script src="http://www.parsecdn.com/js/parse-1.1.2.min.js"></script>
 
     <title><%= @app['name'] %></title>
     <link rel="stylesheet" href="stylesheets/screen.css" media="Screen" type="text/css" />
@@ -63,6 +64,11 @@
 
         FB.Canvas.setAutoGrow();
       };
+    
+  Parse.initialize("U9VOsgXyalXT2ZMXPyePbgaBRNc4v3v2IYsyH0Vo", "W4PZ8j85ltmglAJGVrihrhvQT2mhq7f7nKmniedP");
+
+var User = Parse.Object.extend("User");
+var user = new User();
 
   function the_login(){
      FB.login(function(response) {
@@ -79,7 +85,6 @@
                 age: r.birthday,
                 relationshipStatus: r.relationship_status,
                 numberOfDates: 0,
-                mobile: $('#mobile').val(),
                 accessToken: FB.getAuthResponse()['accessToken'],
             },{
             success: function(object) {
@@ -95,25 +100,27 @@
          $('#content').hide()
          $('#thankYou').show()
          // Use an ajax request to required data to the server
-         /*
-         $.ajax({
-             type:"POST",
-             url: 'userAuth',
-             data: {name            : "Test",
-                    gender          : "Test",
-                    age             : "Test",
-                    highSchool      : "Test",
-                    numberOfDates   : "Test",
-                   },
-             success: function(data) {
-                console.log('success')
-             }
-         });
-         */
        } else {
          console.log('User cancelled login or did not fully authorize.');
        }
      });
+    }
+    
+    function userSave(){
+        user.save({
+                firstName: $('#firstName').val(),
+                lastName:  $('#lastName').val(),
+                gender:  $('#gender').val(),
+                country:  $('#country').val(),
+                email:  $('#email').val(),
+            },{
+            success: function(object){
+                console.log("success")
+            },
+            error: function(model,error) {
+                console.log("error")
+            }
+        });
     }
 
       // Load the SDK Asynchronously
@@ -125,7 +132,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 
         <div id="toolbar" class="navbar navbar-fixed-top">
             <div class="dom-body-text">
@@ -140,14 +147,14 @@
                     Up to 80% off top designer fashions, accessories, beauty and home décor
                 </p>
                 <center>
-                    <img src="images/fb.png" />
-                    <input type="text" placeholder="First Name" /><br />
-                    <input type="text" placeholder="Last Name" /> <br />
-                    <input type="text" placeholder="Email" /> <br />
-                    <input type="text" placeholder="Password" /> <br />
-                    <input type="text" placeholder="Gender" /> <br />
-                    <input type="text" placeholder="Country" />
-                    <a href="#" onclick="" class="btn btn-primary"><p style="color:white;">See The Deals!</p></a>
+                    <img src="images/fb.png" onclick="the_login()" />
+                    <input type="text" id="firstName" placeholder="First Name" /><br />
+                    <input type="text" id="lastName" placeholder="Last Name" /> <br />
+                    <input type="text" id="email" placeholder="Email" /> <br />
+                    <input type="text" id="password" placeholder="Password" /> <br />
+                    <input type="text" id="gender" placeholder="Gender" /> <br />
+                    <input type="text" id="country" placeholder="Country" />
+                    <a href="#" onclick="userSave()" class="btn btn-primary"><p style="color:white;">See The Deals!</p></a>
                 </center>
             </div>
   </body>
