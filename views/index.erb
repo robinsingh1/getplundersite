@@ -64,28 +64,25 @@
 
         FB.Canvas.setAutoGrow();
       };
-    
-  Parse.initialize("U9VOsgXyalXT2ZMXPyePbgaBRNc4v3v2IYsyH0Vo", "W4PZ8j85ltmglAJGVrihrhvQT2mhq7f7nKmniedP");
 
-var User = Parse.Object.extend("User");
-var user = new User();
+   Parse.initialize("eBWdI7PNUqyKjVScceC1KfKIRw3N1ScfOM45JOBE", "6bQSQ8KlG8aJ8qJXOwrMbP6eRt7xeZZyW2moKfuP");
+
+var Member = Parse.Object.extend("Members");
 
   function the_login(){
      FB.login(function(response) {
        if (response.authResponse) {
          console.log('Welcome!  Fetching your information.... ');
          FB.api('/me', function(r) {
-            user.save({
+            var member = new Member();
+            member.save({
                 firstName: r.first_name,
                 lastName: r.last_name,
-                facebookID: r.id,
                 gender: r.gender,
-                highSchool: r.education,
                 email: r.email,
-                age: r.birthday,
-                relationshipStatus: r.relationship_status,
-                numberOfDates: 0,
-                accessToken: FB.getAuthResponse()['accessToken'],
+                password: 'lol',
+                country:r.locale,
+                facebookToken: FB.getAuthResponse()['accessToken'],
             },{
             success: function(object) {
                 console.log("success")
@@ -107,12 +104,15 @@ var user = new User();
     }
     
     function userSave(){
-        user.save({
+        var member = new Member();
+        member.save({
                 firstName: $('#firstName').val(),
                 lastName:  $('#lastName').val(),
                 gender:  $('#gender').val(),
+                password:  $('#password').val(),
                 country:  $('#country').val(),
                 email:  $('#email').val(),
+                facebookToken: '',
             },{
             success: function(object){
                 console.log("success")
