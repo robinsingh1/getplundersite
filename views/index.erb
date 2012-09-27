@@ -50,9 +50,13 @@
         FB.Event.subscribe('auth.login', function(response) {
           window.location = window.location;
         });
+        FB.Event.subscribe('auth.authReponseChange', function(response) {
+            console.log(response.status)
+        });
 
         FB.Canvas.setAutoGrow();
 
+/*
         FB.getLoginStatus(function(response) {
             if (response.status === 'connected') {
                 var uid = response.authResponse.userID;
@@ -69,6 +73,7 @@
                 console.log('not logged in')
             }
         });
+*/
       };
     </script>
     <script type="text/javascript"src="/javascripts/app.js"></script>
