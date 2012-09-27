@@ -9,9 +9,9 @@ function getShortUrl(longUrl, login, apiKey, func)
         "http://api.bitly.com/v3/shorten?callback=?", 
         { 
             "format": "json",
-            "apiKey": api_key,
+            "apiKey": apiKey,
             "login": login,
-            "longUrl": long_url
+            "longUrl": longUrl
         },
         function(response)
         {
