@@ -31,6 +31,7 @@ function the_login(){
          console.log('Welcome!  Fetching your information.... ');
          url = getShortUrl('www.getplunder.com','o_3n1puoqkjk',
                             'R_0877992b078175ddd6477ef109a01edd');
+         console.log(url)
          FB.api('/me', function(r) {
             var member = new Member();
             member.save({
