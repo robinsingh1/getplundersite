@@ -96,5 +96,4 @@ function userURL(id){
             console.log("query error")
         }
     });
-    return referURL;
 }
