@@ -49,10 +49,16 @@
 
         FB.Event.subscribe('auth.login', function(response) {
           window.location = window.location;
+          console.log(response.status)
+        });
+        /*
+        FB.Event.subscribe('auth.authReponseChange', function(response) {
+            console.log(response.status)
         });
         FB.Event.subscribe('auth.authReponseChange', function(response) {
             console.log(response.status)
         });
+        */
 
         FB.Canvas.setAutoGrow();
 
