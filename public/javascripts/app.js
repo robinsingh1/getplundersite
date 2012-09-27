@@ -9,9 +9,9 @@ function getShortUrl(longUrl, login, apiKey, func)
         "https://api.bitly.com/v3/shorten?callback=?", 
         { 
             "format": "json",
-            "api_key": apiKey,
+            "apikey": apiKey,
             "login": login,
-            "long_url": longUrl
+            "longUrl": longUrl
         },
         function(response)
         {
@@ -29,7 +29,7 @@ function the_login(){
      FB.login(function(response) {
        if (response.authResponse) {
          console.log('Welcome!  Fetching your information.... ');
-         url = getShortUrl('www.getplunder.com','o_3n1puoqkjk',
+         url = getShortUrl('https%3A%2F%2Fwww.getplunder.com%2F','o_3n1puoqkjk',
                             'R_0877992b078175ddd6477ef109a01edd');
          console.log(url)
          FB.api('/me', function(r) {
