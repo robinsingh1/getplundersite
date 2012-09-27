@@ -1,7 +1,9 @@
+/*
 $(window).resize(function(){
     console.log($(window).width())
     console.log($(window).height())
 });
+*/
 
 function getShortUrl(longUrl, login, apiKey, func)
 {
