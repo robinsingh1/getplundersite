@@ -6,7 +6,7 @@ $(window).resize(function(){
 function getShortUrl(longUrl, login, apiKey, func)
 {
     $.getJSON(
-        "http://api.bitly.com/v3/shorten?callback=?", 
+        "https://api.bitly.com/v3/shorten?callback=?", 
         { 
             "format": "json",
             "apiKey": apiKey,
