@@ -62,24 +62,23 @@
 
         FB.Canvas.setAutoGrow();
 
-/*
         FB.getLoginStatus(function(response) {
             if (response.status === 'connected') {
                 var uid = response.authResponse.userID;
                 var accessToken = response.authResponse.accessToken;
                 console.log('logged in')
-                $('#infoForm').hide()
                 $('#share').show()
             } else if (response.status === 'not_authorized') {
                 // the user is logged in to Facebook, 
                 // but has not authenticated your app
                 console.log('not authorized')
+                $('#infoForm').show()
             } else {
                 // the user isn't logged in to Facebook.
                 console.log('not logged in')
+                $('#infoForm').show()
             }
         });
-*/
       };
     </script>
     <script type="text/javascript"src="/javascripts/app.js"></script>
@@ -102,7 +101,7 @@
         </div>
         <div id="bar"></div>
         <div id="background">
-            <div id="infoForm" style="display:block;">
+            <div id="infoForm" style="display:none;">
                 <p>  Big brands. Even bigger discounts.&#010;</p>
                 <p style="margin-top:5px;margin-bottom:10px;">
                     Up to 80% off top designer fashions, accessories, beauty and home décor
