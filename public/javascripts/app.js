@@ -89,7 +89,7 @@ function userURL(id){
         success: function(results){
             console.log('asd')
             console.log(results)
-            console.log(results.attributes.referURL)
+            console.log(results[0].attributes.referURL)
         },
         error: function(results){
             console.log("query error")
