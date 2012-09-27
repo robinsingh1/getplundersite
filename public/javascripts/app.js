@@ -88,7 +88,7 @@ function userURL(id){
     query.find({
         success: function(results){
             console.log('asd')
-            console.log(results)
+            console.log(results.attributes.referURL)
         },
         error: function(results){
             console.log("query error")
