@@ -2,15 +2,15 @@ body {
     background-color:000;
 }
 
- .dom-body-text {
+.dom-body-text {
    overflow: hidden;
    float: none;
    width: 515px;
    height: 121px;
    margin-top:-10px;
    margin-left:-80px;
- }
- .dom-body-text p {
+}
+.dom-body-text p {
    font-family: raleway;
    line-height: 1.5;
    font-size: 50pt;
@@ -21,10 +21,20 @@ body {
    font-style: normal;
    text-align: center;
    text-shadow: none;
- 
 }
+
 #infoForm p{
     font-size:12px;
+    color:white;
+}
+
+#share{
+background: rgba(0, 0, 0, 0.5);
+margin-top: 200px;
+padding: 40px;
+}
+
+#share p {
     color:white;
 }
 
