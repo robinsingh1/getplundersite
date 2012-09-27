@@ -5,15 +5,15 @@ $(window).resize(function(){
 
 var shortUrl;
 function getShortUrl(longUrl, login, apiKey){
-$.ajax({
-  url: "http://api.bitly.com/v3/shorten?format=json",
-  async: false,
-  dataType: 'json',
-  data: {"apikey": apiKey,"login": login,"longUrl": longUrl},
-  success: function (json) {
-    mydata = json.data.url;
-  }
-});
+    $.ajax({
+        url: "http://api.bitly.com/v3/shorten?format=json",
+        async: false,
+        dataType: 'json',
+        data: {"apikey": apiKey,"login": login,"longUrl": longUrl},
+        success: function (json) {
+            mydata = json.data.url;
+        }
+    });
 return mydata;
 }
 
@@ -78,18 +78,17 @@ function userSave(){
         success: function(object){
             console.log("success")
         },
-        error: function(model,error) {
-            console.log("error")
-        }
+        error: function(model,error) { console.log("error") }
     });
 }
 
-function userURL(){
+function userURL(id){
     var query = new Parse.Query('Members')
-    query.equalTo("lastName", "Singh");
+    query.equalTo("facebookToken", id);
     query.find({
         success: function(results){
-            console.log("query success")
+            console.log('asd')
+            console.log(results.referURL)
         },
         error: function(results){
             console.log("query error")
