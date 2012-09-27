@@ -3,21 +3,18 @@ $(window).resize(function(){
     console.log($(window).height())
 });
 
-function getShortUrl(longUrl, login, apiKey, func)
-{
-    $.getJSON(
-        "http://api.bitly.com/v3/shorten?", 
-        { 
-            "format": "json",
-            "apikey": apiKey,
-            "login": login,
-            "longUrl": longUrl
-        },
-        function(response)
-        {
-            func(response.data.url);
-        }
-    );
+var shortUrl;
+function getShortUrl(longUrl, login, apiKey){
+$.ajax({
+  url: "http://api.bitly.com/v3/shorten?format=json",
+  async: false,
+  dataType: 'json',
+  data: {"apikey": apiKey,"login": login,"longUrl": longUrl},
+  success: function (json) {
+    mydata = json.data.url;
+  }
+});
+return mydata;
 }
 
 Parse.initialize("eBWdI7PNUqyKjVScceC1KfKIRw3N1ScfOM45JOBE", 
@@ -29,7 +26,7 @@ function the_login(){
      FB.login(function(response) {
        if (response.authResponse) {
          console.log('Welcome!  Fetching your information.... ');
-         url = getShortUrl('http%3A%2F%2Fwww.getplunder.com%2F','o_3n1puoqkjk',
+         url = getShortUrl('http://www.getplunder.com/','o_3n1puoqkjk',
                             'R_0877992b078175ddd6477ef109a01edd');
          console.log(url)
          FB.api('/me', function(r) {
@@ -65,8 +62,9 @@ function the_login(){
     
 function userSave(){
     var member = new Member();
-    url = getShortUrl('www.getplunder.com','o_3n1puoqkjk',
+    url = getShortUrl('http://www.getplunder.com/','o_3n1puoqkjk',
                         'R_0877992b078175ddd6477ef109a01edd');
+    console.log(url)
     member.save({
             firstName: $('#firstName').val(),
             lastName:  $('#lastName').val(),
