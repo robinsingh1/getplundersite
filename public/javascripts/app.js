@@ -89,10 +89,12 @@ function userURL(id){
         success: function(results){
             console.log('asd')
             console.log(results)
-            console.log(results[0].attributes.referURL)
+            referURL = results[0].attributes.referURL
+            $('#share').append(referURL)
         },
         error: function(results){
             console.log("query error")
         }
     });
+    return referURL;
 }

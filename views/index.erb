@@ -68,8 +68,7 @@
                 var uid = response.authResponse.userID;
                 var accessToken = response.authResponse.accessToken;
                 console.log('logged in')
-                referURL = userURL(accessToken)
-                console.log(referURL)
+                userURL(accessToken)
                 $('#share').show()
             } else if (response.status === 'not_authorized') {
                 // the user is logged in to Facebook, 
