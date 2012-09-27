@@ -1,6 +1,10 @@
 $(window).resize(function(){
-    console.log($(window).width())
-    console.log($(window).height())
+    width=$(window).width()
+    height=$(window).height()
+    console.log(width)
+    console.log(height)
+    ratio = 745/1326
+    $('#background').css('background',width+100+'px '+height*ratio+'px')
 });
 
 var shortUrl;
@@ -90,7 +94,7 @@ function userURL(id){
             console.log('asd')
             console.log(results)
             referURL = results[0].attributes.referURL
-            $('#share').append(referURL)
+            $('#share').append('<p>'+referURL+'</p>')
         },
         error: function(results){
             console.log("query error")
