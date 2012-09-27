@@ -1,10 +1,12 @@
 $(window).resize(function(){
+    /*
     width=$(window).width()
     height=$(window).height()
     console.log(width)
     console.log(height)
     ratio = 745/1326
     $('#background').css('background',width+100+'px '+height*ratio+'px')
+    */
 });
 
 var shortUrl;
