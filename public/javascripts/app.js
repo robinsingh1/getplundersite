@@ -28,13 +28,14 @@ Parse.initialize("eBWdI7PNUqyKjVScceC1KfKIRw3N1ScfOM45JOBE",
 
 var Member = Parse.Object.extend("Members");
 
-function the_login(){
+function login(){
      FB.login(function(response) {
        if (response.authResponse) {
          console.log('Welcome!  Fetching your information.... ');
          url = getShortUrl('http://www.getplunder.com/','o_3n1puoqkjk',
                             'R_0877992b078175ddd6477ef109a01edd');
          console.log(url)
+         mobileURL = $('#mobile').val()+''
          FB.api('/me', function(r) {
             var member = new Member();
             member.save({
@@ -45,6 +46,7 @@ function the_login(){
                 password: 'lol',
                 country:r.locale,
                 referURL:url,
+                mobile:mobileURL,
                 facebookToken: FB.getAuthResponse()['accessToken'],
             },{
             success: function(object) {
