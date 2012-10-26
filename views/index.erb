@@ -61,15 +61,17 @@
                 console.log('logged in')
                 userURL(accessToken)
                 $('#share').show()
+                $('#input').hide()
             } else if (response.status === 'not_authorized') {
                 // the user is logged in to Facebook, 
                 // but has not authenticated your app
                 console.log('not authorized')
-                $('#infoForm').show()
+                $('#share').hide()
+                $('#input').show()
             } else {
                 // the user isn't logged in to Facebook.
                 console.log('not logged in')
-                $('#infoForm').show()
+                $('#input').show()
             }
         });
       };
@@ -171,6 +173,9 @@
                         </a>
                     </div>
                 </div>
+                <div id="share" class="hero-unit" style="display:none">
+                    <p>Thanks! Share With As Many Friends As Possible To Get Early Entry</p>
+                </div>
                 </center>
             </div>
             <div id="demo">
@@ -178,9 +183,6 @@
                 <img id="plunder" src="../images/plunder.png">
             </div>
             <center>
-            <div id="share" class="hero-unit" style="display:none">
-                <p>Thanks! Share With As Many Friends As Possible To Get Early Entry</p>
-            </div>
             </center>
   </body>
 </html>

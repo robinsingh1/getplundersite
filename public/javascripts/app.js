@@ -51,6 +51,8 @@ function login(){
             },{
             success: function(object) {
                 console.log("success")
+                 $('#input').hide()
+                 $('#share').show()
             },
             error: function(model, error) {
                 console.log("error")
@@ -59,8 +61,6 @@ function login(){
 
          });
          // All the Javascript you want to execute goes here
-         $('#content').hide()
-         $('#thankYou').show()
          // Use an ajax request to required data to the server
        } else {
          console.log('User cancelled login or did not fully authorize.');
