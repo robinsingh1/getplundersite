@@ -77,5 +77,16 @@ padding: 40px;
     position:absolute;
 }
 
+#demo{
+    position:absolute;
+    height:460px;
+    width:320px;
+    top: 110px;
+    left: 960px;
+}
+
 #iphone{
+    position:absolute;
+    top:-50px;
+    left:900px;
 }
