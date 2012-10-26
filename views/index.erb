@@ -52,15 +52,6 @@
           console.log(response.status)
         });
 
-        /*
-        FB.Event.subscribe('auth.authReponseChange', function(response) {
-            console.log(response.status)
-        });
-        FB.Event.subscribe('auth.authReponseChange', function(response) {
-            console.log(response.status)
-        });
-        */
-
         FB.Canvas.setAutoGrow();
 
         FB.getLoginStatus(function(response) {
@@ -103,7 +94,7 @@
         </div>
         <div id="bar"></div>
         <div id="background">
-            <div id="infoForm" style="display:none;">
+            <!-- <div id="infoForm" style="display:none;">
                 <p>  Big brands. Even bigger discounts.&#010;</p>
                 <p style="margin-top:5px;margin-bottom:10px;">
                     Up to 80% off top designer fashions, accessories, beauty and home décor
@@ -118,6 +109,11 @@
                     <input type="text" id="country" placeholder="Country" />
                     <a href="#" onclick="userSave()" class="btn btn-primary"><p style="color:white;">See The Deals!</p></a>
                 </center>
+            </div>
+            -->
+            <div id="demo">
+                <img id="iphone" src="../images/iphone.png">
+                <img id="demo" src="../images/plunder.png">
             </div>
             <center>
             <div id="share" class="hero-unit" style="display:none">

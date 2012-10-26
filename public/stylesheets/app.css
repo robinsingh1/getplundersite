@@ -7,7 +7,7 @@ body {
    float: none;
    width: 515px;
    height: 121px;
-   margin-top:-10px;
+   margin-top:-15px;
    margin-left:-80px;
 }
 .dom-body-text p {
@@ -39,11 +39,11 @@ padding: 40px;
 }
 
 #background{
-    background-image:url('../images/gilt_russia.jpg');
+    background-image:url('../images/boutique.png');
     background-repeat:no-repeat;
-    background-size:1326px 745.875px;
     background-position: center;
     background-color:#000;
+    background-size:100% auto;
     position:absolute;
     top:0px;
     left:0px;
@@ -75,4 +75,7 @@ padding: 40px;
     top:50px;
     left:0px;
     position:absolute;
+}
+
+#iphone{
 }

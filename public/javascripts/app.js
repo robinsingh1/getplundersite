@@ -103,3 +103,20 @@ function userURL(id){
         }
     });
 }
+$(window).resize(function() {
+    resizeImage()
+    $('.flexslider').flexslider();
+});
+
+$(document).ready(function() {
+    resizeImage()
+});
+
+function resizeImage(){
+    width = $(window).width()
+    height = $(window).height()
+    ratio = 1599/350
+    
+    $('#main-content').height(height-115-100)
+    console.log(height)
+}
